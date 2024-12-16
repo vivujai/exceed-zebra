@@ -1,0 +1,10 @@
+google.cloud.texttospeech
+sounddevice 
+scipy
+soundfile 
+wavio
+google.cloud
+openmeteo_requests
+requests_cache 
+pandas 
+retry_requests
