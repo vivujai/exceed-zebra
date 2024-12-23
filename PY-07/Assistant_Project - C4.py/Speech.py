@@ -9,7 +9,7 @@ import random
 from google.cloud import speech_v1p1beta1 as speech
 
 
-jpath = '../vision-project-207707-f84d39ceed76.json'
+jpath = './vision-project-207707-f84d39ceed76.json'
 
 class Conversation:
     def stt():

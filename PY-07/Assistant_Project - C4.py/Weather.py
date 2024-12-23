@@ -26,8 +26,9 @@ def weather(hour):
 
     # Process hourly data. The order of variables needs to be the same as requested.
     hourly = response.Hourly()
-    hourly_temperature_2m = hourly.Variables(0).ValuesAsNumpy()
-    hourly_precipitation_probability = hourly.Variables(1).ValuesAsNumpy()
+    hourly_temperature_2m = hourly.Variables(0).ValuesAsNumpy()[0]
+    hourly_precipitation_probability = hourly.Variables(1).ValuesAsNumpy()[0]
 
+    print(hourly_temperature_2m, hourly_precipitation_probability)
     
     return hourly_temperature_2m, hourly_precipitation_probability
