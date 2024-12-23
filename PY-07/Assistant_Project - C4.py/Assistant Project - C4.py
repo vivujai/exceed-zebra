@@ -65,7 +65,6 @@ while True:
             response = f"The answer is {answer}"
             C.tts(response)
             
-
         elif ("*" in msg_list or "times" in msg_list) and ("minus" not in msg_list and "subtracted" not in msg_list and "-" not in msg_list) and ("plus" not in msg_list and "+" not in msg_list  and "sum" not in msg_list) and ("divide" not in msg_list and "divided" not in msg_list):
              
             answer = Calculator.multi(num_list)
@@ -95,14 +94,50 @@ while True:
                 duration = word
 
         if duration == None:
-            C.tts("Please specify the duration")
+            C.tts("Please specify the duration in seconds")
 
         message,confidence = C.stt()
+
+        msg_list = message.split(" ")
+
+        print(msg_list)
+
+        while True:
+            if message == "":
+                C.tts("try again")
+                message, confidence = C.stt()
+            elif "stop" in msg_list:
+                 quit()
+            else:
+                break
 
         for word in msg_list:
             if word.isnumeric():
-                duration = word
+                duration = int(word)
 
         C.tts("Specify the name, only say the entire name")
 
+
         message,confidence = C.stt()
+ 
+        msg_list = message.split(" ")
+
+        print(msg_list)
+
+
+        while True:
+            if message == "":
+                C.tts("try again")
+                message, confidence = C.stt()
+                print(message)
+            elif "stop" in msg_list:
+                 quit()
+            else:
+                break
+
+
+        name = message
+        
+        print(duration, name)
+
+        TC.transcribe(duration, name)
